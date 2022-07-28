@@ -50,12 +50,28 @@ public:
 		cout << endl;
 	}
 
-	T& operator[](int ind);
+	T& operator[](int ind) const;
+	void operator()(int incr) const;
 
 };
 
 template<class T>
-T& Array<T>::operator[](int ind)
+T& Array<T>::operator[](int ind) const
 {
-	return arr[ind];
+	if (ind >= 0 && ind < size)
+		return arr[ind];
+	else
+		std::cout << "Error";
+
 }
+
+template<class T>
+void Array<T>::operator()(int incr) const
+{
+	for (size_t i = 0; i < size; i++)
+	{
+		arr[i] += incr;
+	}
+}
+
+
