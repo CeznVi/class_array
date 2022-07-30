@@ -85,7 +85,8 @@ template<class T>
 Array<T>::operator char*()
 {
 	char* str = new char [size];
-	for (size_t i = 0; i < size; i++)
+
+	for (size_t i{}; i < size; i++)
 		str[i] = this->arr[i];
 
 	str[size] = '\0';
