@@ -46,8 +46,9 @@ public:
 	}
 	T& operator[](int ind) const;
 	void operator()(int incr) const;
-	
-	
+	operator int();
+	operator char*();
+
 };
 
 
@@ -69,5 +70,28 @@ void Array<T>::operator()(int incr) const
 		arr[i] += incr;
 	}
 }
+
+template<class T>
+Array<T>::operator int()
+{
+	int count{};
+	for (size_t i = 0; i < size; i++)
+		count += this->arr[i];
+	
+	return count;
+}
+
+template<class T>
+Array<T>::operator char*()
+{
+	char* str = new char [size];
+	for (size_t i = 0; i < size; i++)
+		str[i] = this->arr[i];
+
+	str[size] = '\0';
+	return str;
+}
+
+
 
 

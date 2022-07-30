@@ -1,9 +1,13 @@
 #include <iostream>
+#include <Windows.h>
 #include "Array.h"
 
 
 int main()
 {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
 	//char
 	const int size = 10;
 	Array<char> arrChar(size);
@@ -13,18 +17,21 @@ int main()
 	arrChar.print();
 	arrChar(5);
 	arrChar.print();
-	std::cout << "a = " << a << '\n';
-
-
-	 
+	std::cout << "Перетворення до інта arrChar : " << (int)arrChar << '\n';
+	std::cout << "Перетворення до char arrChar : " << (char*)arrChar << '\n';
+		 
 	//int
 	Array<int> arrInt(size);
-	arrInt.set(0, 10);
+	arrInt.set(50, 60);
 	arrInt.print();
-	arrInt[1] = 1400;
+	//Демонстрація раоботи перевантаження оператора квадратні дужки
+	arrInt[1] = 0;
 	arrInt.print();
-	arrInt(1000);
+	arrInt(2);
+	std::cout << "Перевантаження оператора (): \n";
 	arrInt.print();
+	std::cout << "Перетворення до інта arrInt : " << (int)arrInt << '\n';
+	std::cout << "Перетворення до char arrInt : " << (char*)arrInt << '\n';
 
 	return 0;
 }
